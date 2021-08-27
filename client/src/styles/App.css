@@ -1,0 +1,20 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: lightblue;
+  color: white;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  align-items: center;
+}
+
+li {
+  color: lightslategray;
+}

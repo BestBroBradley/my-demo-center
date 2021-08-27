@@ -1,8 +1,8 @@
-const API = {
-    authenticate: function"authenticated",
-    getEmails: "got emails",
-    getCalendar: "got calendar",
-    getContacts: "get contacts"
-}
+import axios from 'axios'
 
-export default API
+export default {
+    authenticate: function (email) {
+        console.log(`${email} authenticated`)
+    }
+
+}

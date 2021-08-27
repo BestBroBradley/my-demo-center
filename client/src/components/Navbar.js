@@ -6,7 +6,6 @@ function Navbar() {
         <div className="Navbar">
             <nav>
                 <h1>Allison's Nylas Demo Page</h1>
-                <h2>Testing git again</h2>
                 <ul className="nav-links">
                     <Link to='/'>
                         <li>Home</li>

@@ -18,3 +18,12 @@ nav {
 li {
   color: lightslategray;
 }
+
+.Home {
+  text-align: center;
+}
+
+input {
+  margin: 1vh;
+  width: 40%;
+}

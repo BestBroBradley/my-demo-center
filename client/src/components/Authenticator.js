@@ -1,15 +1,20 @@
 import API from "../utils/API"
 
-const Authenticator = () => {
+const Authenticator = (props) => {
 
-    const handleAuth = (event) => {
+    const { user, setUser } = props.props
+
+    const handleAuth = (event => {
         const email = document.getElementById('email').value
         API.authenticate(email)
-    }
-
+        .then(response => {
+            setUser({...user, token: response})
+        })
+    })
+    
     return (
         <div id="authenticator">
-            <label for="email">Email</label><br />
+            <label htmlFor="email">Email</label><br />
             <input id="email"></input><br />
             <button onClick={handleAuth}>Authenticate!</button>
         </div>)

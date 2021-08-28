@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './styles/App.css';
 import Navbar from './components/Navbar'
@@ -8,6 +9,11 @@ import Scheduler from './pages/Scheduler'
 import Home from './pages/Home'
 
 function App() {
+
+  const [user, setUser] = useState({
+    token: ""
+  });
+
   return (
     <div className="App">
       <Router>
@@ -17,7 +23,7 @@ function App() {
         <Route path="/contacts" component={Contacts} />
         <Route path="/calendar" component={Calendar} />
         <Route path="/scheduler" component={Scheduler} />
-        <Route path ="/" exact component={Home} />
+        <Route path="/" render={() => (<Home props={{user, setUser}}/>)}/>
         </Switch>
       </Router>
     </div>

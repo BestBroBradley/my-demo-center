@@ -9,5 +9,6 @@ router
 router
   .route("/:id")
   .post(userController.login)
+  .get(userController.authenticate)
 
 module.exports = router;

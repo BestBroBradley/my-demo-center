@@ -7,11 +7,12 @@ const Authenticator = (props) => {
     const handleAuth = (event => {
         const email = document.getElementById('email').value
         API.authenticate(email)
-        .then(response => {
-            setUser({...user, token: response})
-        })
+            .then(response => {
+                console.log(response)
+                window.location.href = `${response.data}`
+            })
     })
-    
+
     return (
         <div id="authenticator">
             <label htmlFor="email">Email</label><br />

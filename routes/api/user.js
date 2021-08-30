@@ -7,6 +7,10 @@ router
   .post(userController.create)
 
 router
+  .route("/authenticate/:code")
+  .post(userController.postauth)
+
+router
   .route("/:id")
   .post(userController.login)
   .get(userController.authenticate)

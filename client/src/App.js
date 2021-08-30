@@ -7,11 +7,14 @@ import Contacts from './pages/Contacts'
 import Emails from './pages/Emails'
 import Scheduler from './pages/Scheduler'
 import Home from './pages/Home'
+import Postauth from './pages/Postauth'
 
 function App() {
 
   const [user, setUser] = useState({
-    token: ""
+    token: "",
+    email: "",
+    loggedIn: false
   });
 
   return (
@@ -19,6 +22,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+        <Route path="/authenticate" render={() => (<Postauth props={{user, setUser}}/>)}/>
         <Route path="/emails" component={Emails} />
         <Route path="/contacts" component={Contacts} />
         <Route path="/calendar" component={Calendar} />

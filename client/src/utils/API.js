@@ -2,6 +2,10 @@ import axios from 'axios'
 
 export default {
     authenticate: function (email) {
-        return axios.get(`/api/user/ + ${email}`)
+        return axios.get(`/api/user/${email}`)
+    },
+
+    postauth: function (token) {
+        console.log('completed!')
     }
 }

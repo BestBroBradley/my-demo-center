@@ -26,10 +26,17 @@ module.exports = {
             loginHint: req.params.id,
             redirectURI: 'http://localhost:3000/authenticate',
             scopes: ['email.read_only', 'email.send'],
+            state: req.params.id
         };
 
         auth_url = Nylas.urlForAuthentication(options);
-        res.send(auth_url)
+
+        const response = {
+            url: auth_url,
+            email: req.params.id
+        }
+
+        res.send(response)
     },
 
     create: function (req, res) {

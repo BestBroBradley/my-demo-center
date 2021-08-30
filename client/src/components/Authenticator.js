@@ -9,7 +9,8 @@ const Authenticator = (props) => {
         API.authenticate(email)
             .then(response => {
                 console.log(response)
-                window.location.href = `${response.data}`
+                window.location.href = `${response.data.url}`
+                setUser({...user, email: response.data.email})
             })
     })
 

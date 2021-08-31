@@ -17,7 +17,7 @@ module.exports = {
             clientSecret,
         });
 
-        Nylas.exchangeCodeForToken(req.params.code).then(token => {
+        Nylas.exchangeCodeForToken(req.body).then(token => {
             console.log("This is the token " + token)
             res.send(token)
         });
@@ -49,10 +49,10 @@ module.exports = {
 
     create: function (req, res) {
         User
-            .findOne({ username: req.body.username })
+            .findOne({ email: req.body.email })
             .then(data => {
                 if (data) {
-                    res.send("Username already exists")
+                    res.send("Email already exists")
                 } else {
                     console.log(req.body.password)
                     bcrypt.genSalt(10, function (err, salt) {
@@ -75,7 +75,7 @@ module.exports = {
     login: function (req, res) {
         console.log(req.params.id)
         User
-            .findOne({ username: req.params.id })
+            .findOne({ email: req.params.id })
             .then(data => {
                 if (data) {
                     if (bcrypt.compareSync(req.body.pw, data.password)) {

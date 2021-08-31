@@ -12,12 +12,12 @@ function Postauth(props) {
         const url = window.location.href
         const email = parseEmail(url.split('=')[1])
         const code = url.split('=')[2]
-        setUser({...user, loggedIn: true, email: email})
+        setUser({ ...user, loggedIn: true, email: email })
         API.postauth(code)
-        .then(response => {
-            console.log(response)
-            history.push("/")
-        })
+            .then(response => {
+                console.log(response)
+                history.push("/")
+            })
     }, [])
 
     const parseEmail = (raw) => {
@@ -26,10 +26,10 @@ function Postauth(props) {
         return email
     }
 
-return (
-    <>
-    </>
-);
+    return (
+        <>
+        </>
+    );
 }
 
 export default Postauth;

@@ -6,6 +6,11 @@ export default {
     },
 
     postauth: function (code) {
-        return axios.post(`/api/user/authenticate/${code}`)
+        return axios.post(`/api/user/authenticate`, code)
+    },
+
+    signup: function (user) {
+        console.log(user)
+        return axios.post(`api/user`, user)
     }
 }

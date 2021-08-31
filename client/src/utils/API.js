@@ -5,7 +5,7 @@ export default {
         return axios.get(`/api/user/${email}`)
     },
 
-    postauth: function (token) {
-        console.log('completed!')
+    postauth: function (code) {
+        return axios.post(`/api/user/authenticate/${code}`)
     }
 }

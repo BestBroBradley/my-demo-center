@@ -8,6 +8,8 @@ import Emails from './pages/Emails'
 import Scheduler from './pages/Scheduler'
 import Home from './pages/Home'
 import Postauth from './pages/Postauth'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+        <Route path="/sign-in" render={() => (<SignIn props={{user, setUser}}/>)}/>
+        <Route path="/sign-up" render={() => (<SignUp props={{user, setUser}}/>)}/>
         <Route path="/authenticate" render={() => (<Postauth props={{user, setUser}}/>)}/>
         <Route path="/emails" component={Emails} />
         <Route path="/contacts" component={Contacts} />

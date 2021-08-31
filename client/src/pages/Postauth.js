@@ -11,10 +11,13 @@ function Postauth(props) {
     useEffect(() => {
         const url = window.location.href
         const email = parseEmail(url.split('=')[1])
-        const token = url.split('=')[2]
-        setUser({...user, token: token, loggedIn: true, email: email})
-        API.postauth(token)
-        history.push("/")
+        const code = url.split('=')[2]
+        setUser({...user, loggedIn: true, email: email})
+        API.postauth(code)
+        .then(response => {
+            console.log(response)
+            history.push("/")
+        })
     }, [])
 
     const parseEmail = (raw) => {

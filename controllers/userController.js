@@ -11,7 +11,16 @@ const { User } = db
 module.exports = {
 
     postauth: function (req, res) {
-        console.log(req)
+
+        Nylas.config({
+            clientId,
+            clientSecret,
+        });
+
+        Nylas.exchangeCodeForToken(req.params.code).then(token => {
+            console.log("This is the token " + token)
+            res.send(token)
+        });
     },
 
     authenticate: function (req, res) {
@@ -22,7 +31,6 @@ module.exports = {
         });
 
         options = {
-            response_type: "token",
             loginHint: req.params.id,
             redirectURI: 'http://localhost:3000/authenticate',
             scopes: ['email.read_only', 'email.send'],

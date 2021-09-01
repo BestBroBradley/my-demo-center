@@ -5,8 +5,8 @@ export default {
         return axios.get(`/api/user/${email}`)
     },
 
-    postauth: function (code) {
-        return axios.post(`/api/user/authenticate`, code)
+    postauth: function (details) {
+        return axios.post(`/api/user/authenticate`, details)
     },
 
     signup: function (user) {

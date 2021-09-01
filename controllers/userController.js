@@ -17,9 +17,11 @@ module.exports = {
             clientSecret,
         });
 
-        Nylas.exchangeCodeForToken(req.body).then(token => {
-            console.log("This is the token " + token)
-            res.send(token)
+        Nylas.exchangeCodeForToken(req.body.code).then(token => {
+            User.updateOne({ email: req.body.email }, { needsAuth: false, token: token })
+                .then(response => {
+                    res.send(response)
+                })
         });
     },
 

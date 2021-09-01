@@ -6,7 +6,7 @@ import Authenticator from '../components/Authenticator'
 
 function SignUp(props) {
 
-    const { user, setUser } = props
+    const { user, setUser } = props.props
 
     const history = useHistory()
 
@@ -24,11 +24,16 @@ function SignUp(props) {
     const handleSignUp = () => {
         const email = document.getElementById("new-email").value
         const password = document.getElementById("new-password").value
-        const user = {
+        setUser({
+            ...user,
+            email,
+            loggedIn: true
+        })
+        const newUser = {
             email,
             password
         }
-        API.signup(user)
+        API.signup(newUser)
             .then(response => {
                 if (response.data === "Email already exists") {
                     alert(response.data)

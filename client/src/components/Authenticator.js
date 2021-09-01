@@ -5,12 +5,10 @@ const Authenticator = (props) => {
     const { user, setUser } = props.props
 
     const handleAuth = (event => {
-        const email = document.getElementById('email').value
-        API.authenticate(email)
+        API.authenticate(user.email)
             .then(response => {
                 console.log(response)
                 window.location.href = `${response.data.url}`
-                setUser({...user, email: response.data.email})
             })
     })
 

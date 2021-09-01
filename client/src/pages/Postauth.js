@@ -13,7 +13,11 @@ function Postauth(props) {
         const email = parseEmail(url.split('=')[1])
         const code = url.split('=')[2]
         setUser({ ...user, loggedIn: true, email: email })
-        API.postauth(code)
+        const details = {
+            code,
+            email
+        }
+        API.postauth(details)
             .then(response => {
                 console.log(response)
                 history.push("/")
@@ -22,7 +26,7 @@ function Postauth(props) {
 
     const parseEmail = (raw) => {
         let email = raw.split('%40')
-        email = ((email[0] + email[1]).split('&')[0])
+        email = ((email[0] + "@" + email[1]).split('&')[0])
         return email
     }
 

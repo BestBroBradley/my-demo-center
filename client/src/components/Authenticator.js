@@ -2,7 +2,7 @@ import API from "../utils/API"
 
 const Authenticator = (props) => {
 
-    const { user, setUser } = props.props
+    const { user } = props.props
 
     const handleAuth = (event => {
         API.authenticate(user.email)
@@ -14,8 +14,8 @@ const Authenticator = (props) => {
 
     return (
         <div id="authenticator">
-            <label htmlFor="email">Email</label><br />
-            <input id="email"></input><br />
+            <h1>Thanks for signing up, {user.email}!`</h1>
+            <br />
             <button onClick={handleAuth}>Authenticate!</button>
         </div>)
 }

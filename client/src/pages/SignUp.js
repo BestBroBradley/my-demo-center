@@ -1,14 +1,11 @@
 import '../styles/App.css';
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import API from '../utils/API';
 import Authenticator from '../components/Authenticator'
 
 function SignUp(props) {
 
     const { user, setUser } = props.props
-
-    const history = useHistory()
 
     const [state, setState] = useState({
         email: "",

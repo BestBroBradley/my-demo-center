@@ -15,15 +15,23 @@ nav {
   align-items: center;
 }
 
-li {
-  color: lightslategray;
+body {
+  text-align: center;
 }
 
-.Home {
-  text-align: center;
+li {
+  color: lightslategray;
 }
 
 input {
   margin: 1vh;
   width: 40%;
+}
+
+button {
+  font-size: 2vh;
+  padding: 1vh;
+  margin: 1vh;
+  border-radius: 7%;
+  background: lightblue
 }

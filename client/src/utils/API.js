@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default {
+const API = {
     authenticate: function (email) {
         return axios.get(`/api/user/${email}`)
     },
@@ -14,3 +14,5 @@ export default {
         return axios.post(`api/user`, user)
     }
 }
+
+export default API

@@ -6,12 +6,17 @@ const API = {
     },
 
     postauth: function (details) {
-        return axios.post(`/api/user/authenticate`, details)
+        return axios.post('/api/user/authenticate', details)
     },
 
     signup: function (user) {
-        console.log(user)
-        return axios.post(`api/user`, user)
+        return axios.post('api/user', user)
+    },
+
+    getmail: function(email) {
+        const data = axios.get(`api/email/${email}`)
+        console.log(data)
+        return data
     }
 }
 

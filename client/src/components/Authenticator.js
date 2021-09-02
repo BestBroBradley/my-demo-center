@@ -14,7 +14,7 @@ const Authenticator = (props) => {
 
     return (
         <div id="authenticator">
-            <h1>Thanks for signing up, {user.email}!`</h1>
+            <h1>Thanks for signing up, {user.email}!</h1>
             <br />
             <button onClick={handleAuth}>Authenticate!</button>
         </div>)

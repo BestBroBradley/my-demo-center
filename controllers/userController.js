@@ -20,6 +20,7 @@ module.exports = {
         Nylas.exchangeCodeForToken(req.body.code).then(token => {
             User.updateOne({ email: req.body.email }, { needsAuth: false, token: token })
                 .then(response => {
+                    console.log("Updated token.")
                     res.send(response)
                 })
         });

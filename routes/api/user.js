@@ -1,4 +1,4 @@
-  
+
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
@@ -11,8 +11,11 @@ router
   .post(userController.postauth)
 
 router
+  .route("/login/:email/:password")
+  .get(userController.login)
+
+router
   .route("/:id")
-  .post(userController.login)
   .get(userController.authenticate)
 
 module.exports = router;

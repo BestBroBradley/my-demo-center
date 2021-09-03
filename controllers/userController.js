@@ -76,13 +76,18 @@ module.exports = {
     },
 
     login: function (req, res) {
-        console.log(req.params.id)
+        console.log(req.params.email)
         User
-            .findOne({ email: req.params.id })
+            .findOne({ email: req.params.email })
             .then(data => {
                 if (data) {
-                    if (bcrypt.compareSync(req.body.pw, data.password)) {
-                        res.json(data)
+                    if (bcrypt.compareSync(req.params.password, data.password)) {
+                        const user = {
+                            email: data.email,
+                            needsAuth: data.needsAuth,
+                            loggedIn: true
+                        }
+                        res.json(user)
                     } else {
                         res.send("Password doesn't match")
                     }

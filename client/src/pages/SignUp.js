@@ -9,8 +9,7 @@ function SignUp(props) {
 
     const [state, setState] = useState({
         email: "",
-        password: "",
-        loggedOn: false,
+        password: ""
     })
 
     const handleChange = (event => {

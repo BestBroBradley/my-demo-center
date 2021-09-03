@@ -7,9 +7,7 @@ import API from '../utils/API';
 function Emails(props) {
 
   const history = useHistory()
-
   const { user } = props.props
-
   const [emails, setEmails] = useState([])
 
   useEffect(() => {
@@ -19,19 +17,16 @@ function Emails(props) {
     else {
       API.getmail(user.email)
       .then(response => {
-        console.log(response)
-        console.log(response.data[0].id)
         setEmails(response.data)
       })
     }
   }, []);
 
 const renderEmails = () => {
-  console.log(emails)
   if (emails === []) {
     return <h1>Looks like you don't have any emails!</h1>
   } else {
-    return (<><h1>Message Center</h1>{emails.map(email => <Email key={email.id} props={{email}}/>)}</>)
+    return (<><h1>Message Center</h1>{emails.map(email => <Email key={email.id} props={email}/>)}</>)
   }
 }
 

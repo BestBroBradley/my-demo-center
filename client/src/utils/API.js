@@ -13,6 +13,10 @@ const API = {
         return axios.post('api/user', user)
     },
 
+    signin: function (details) {
+        return axios.get(`api/user/login/${details.email}/${details.password}`)
+    },
+
     getmail: function(email) {
         const data = axios.get(`api/email/${email}`)
         console.log(data)

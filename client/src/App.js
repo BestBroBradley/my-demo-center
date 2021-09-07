@@ -14,7 +14,6 @@ import SignUp from './pages/SignUp'
 function App() {
 
   const [user, setUser] = useState({
-    token: "",
     email: "",
     loggedIn: false
   });
@@ -28,8 +27,8 @@ function App() {
           <Route path="/sign-up" render={() => (<SignUp props={{ user, setUser }} />)} />
           <Route path="/authenticate" render={() => (<Postauth props={{ user, setUser }} />)} />
           <Route path="/emails" render={() => (<Emails props={{ user }} />)} />
+          <Route path="/calendar" render={() => (<Calendar props={{ user }} />)} />
           <Route path="/contacts" component={Contacts} />
-          <Route path="/calendar" component={Calendar} />
           <Route path="/scheduler" component={Scheduler} />
           <Route path="/" render={() => (<Home props={{ user, setUser }} />)} />
         </Switch>

@@ -18,9 +18,13 @@ const API = {
     },
 
     getmail: function(email) {
-        const data = axios.get(`api/email/${email}`)
-        console.log(data)
-        return data
+        return axios.get(`api/email/${email}`)
+    },
+
+    getevents: function(details) {
+        const email = details.email
+        const date = details.date
+        return axios.get(`api/events/${email}/${date}`)
     }
 }
 

@@ -48,7 +48,6 @@ function SignIn(props) {
           loggedIn: response.data.loggedIn,
           needsAuth: response.data.needsAuth
         })
-        console.log("signed in!")
         history.push('/')
       }
       })

@@ -6,8 +6,6 @@ function Navbar(props) {
     const user = props.props
     const { loggedIn } = user.user
 
-    console.log(loggedIn)
-
     const loggedNav =
         <div className="Navbar">
             <nav>

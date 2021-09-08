@@ -23,11 +23,18 @@ function Calendar(props) {
       let dayStart = moment().format().split("T")[1]
       dayStart = parseInt(dayStart[0] + dayStart[1])
       let dayEnd = 24 - dayStart - 1
-
+      dayStart = dayStart * 60 * 60
+      dayEnd = dayEnd * 60 * 60
 
       let hourStart = moment().format().split("T")[1]
       hourStart = parseInt(hourStart[3] + hourStart[4])
       let hourEnd = 60 - hourStart
+      hourStart = hourStart * 60
+      hourEnd = hourEnd * 60
+
+      const date = Math.floor(Date.now() / 1000)
+      const unixStart = date - (hourStart + dayStart)
+      const unixEnd = date + (hourEnd + dayEnd)
 
     }
   }, []);

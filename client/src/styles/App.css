@@ -35,3 +35,9 @@ button {
   border-radius: 7%;
   background: lightblue
 }
+
+#availability {
+  text-align: left;
+  width: 60%;
+  margin: auto;
+}

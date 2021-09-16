@@ -10,6 +10,8 @@ import Home from './pages/Home'
 import Postauth from './pages/Postauth'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import NewMeeting from './pages/NewMeeting'
+import Booking from './pages/Booking'
 
 function App() {
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/calendar" render={() => (<Calendar props={{ user }} />)} />
           <Route path="/contacts" component={Contacts} />
           <Route path="/scheduler" component={Scheduler} />
+          <Route path="/new-meeting" component={NewMeeting} />
+          <Route path="/book-meeting" render={() => (<Booking props={{ user, setUser }} />)} />
           <Route path="/" render={() => (<Home props={{ user, setUser }} />)} />
         </Switch>
       </Router>

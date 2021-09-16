@@ -17,6 +17,10 @@ const API = {
         return axios.get(`api/user/login/${details.email}/${details.password}`)
     },
 
+    getusers: function() {
+        return axios.get(`api/user`)
+    },
+
     getmail: function(email) {
         return axios.get(`api/email/${email}`)
     },

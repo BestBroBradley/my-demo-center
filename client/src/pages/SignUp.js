@@ -22,10 +22,6 @@ function SignUp(props) {
     const handleSignUp = () => {
         const email = document.getElementById("new-email").value
         const password = document.getElementById("new-password").value
-        setUser({
-            ...user,
-            email
-        })
         const newUser = {
             email,
             password
@@ -35,13 +31,13 @@ function SignUp(props) {
                 if (response.data === "Email already exists") {
                     alert(response.data)
                 } else {
-                    setUser({...user, loggedIn: true})
-                    alert('Logged in!')
+                    setUser({email, loggedIn: true})
+                    console.log(user)
                 }
             })
     }
 
-    return (user.loggedIn ? <Authenticator props={{ state, user, setUser }} /> : <div className="SignUp">
+    return (user.loggedIn ? <Authenticator props={{ user, setUser }} /> : <div className="SignUp">
     <h1>Welcome!  Sign up below.</h1>
     <div id="signup">
         <label htmlFor="new-email">Email</label><br />

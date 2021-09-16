@@ -5,6 +5,7 @@ const userController = require("../../controllers/userController");
 router
   .route("/")
   .post(userController.create)
+  .get(userController.getall)
 
 router
   .route("/authenticate")

@@ -50,6 +50,17 @@ module.exports = {
         res.send(response)
     },
 
+    getall: function (req, res) {
+        User
+        .find()
+        .then(data => {
+            const newData = []
+            data.map(datum => newData.push({id: datum._id, email: datum.email}))
+            res.send(newData)
+        })
+        .catch(err => console.log(err))
+    },
+
     create: function (req, res) {
         User
             .findOne({ email: req.body.email })

@@ -12,9 +12,7 @@ function Postauth(props) {
         const url = window.location.href
         const email = parseEmail(url.split('=')[1])
         const code = url.split('=')[2]
-        console.log(user)
         setUser({ ...user, loggedIn: true, email: email })
-        console.log(user)
         const details = {
             code,
             email

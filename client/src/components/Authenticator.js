@@ -3,6 +3,7 @@ import API from "../utils/API"
 const Authenticator = (props) => {
 
     const { user } = props.props
+    console.log(user)
 
     const handleAuth = (event => {
         API.authenticate(user.email)
